@@ -74,10 +74,10 @@
 $scope.showComment='false';
             console.log('inside component NYT Comment controller.... '+$scope.usercomment.commentID);
 
-this.bylineClicked = function () {
+this.bylineClicked = function() {
 console.log('byline clicked');
 $scope.showComment = !showComment;
-}
+};
           }]);
 
           var myApplication = angular.module("myApplication", ["myControllers", "myDirectives"]);
