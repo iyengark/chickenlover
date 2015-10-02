@@ -1,7 +1,3 @@
 <p ng-repeat="comment in nyt.comments">
-  <span>
-    <img ng-src={{comment.newswire[0].multimedia[0].url}}>
-  </span>
-  {{comment.newswire[0].abstract}} - {{comment.newswire[0].byline}}
-  <!--nyt-comment usercomment="comment"></nyt-comment-->
+  <nyt-comment usercomment="comment"></nyt-comment>
 </p>
