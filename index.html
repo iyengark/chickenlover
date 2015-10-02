@@ -60,7 +60,7 @@
           .controller('CommentsController', ['comments', function (comments) {
             console.log('inside component Comments controller.... number of comments '+comments.length);
             this.comments = comments;
-          });
+          }]);
 
           var myApplication = angular.module("myApplication", ["myControllers", "myDirectives"]);
           
