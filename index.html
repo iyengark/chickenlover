@@ -73,6 +73,11 @@
           .controller('NytCommentController', ['$scope', function ($scope) {
 $scope.showComment='false';
             console.log('inside component NYT Comment controller.... '+$scope.usercomment.commentID);
+
+$scope.bylineClicked = function () {
+console.log('byline clicked');
+$scope.showComment = !showComment;
+}
           }]);
 
           var myApplication = angular.module("myApplication", ["myControllers", "myDirectives"]);
