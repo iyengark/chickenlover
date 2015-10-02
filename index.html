@@ -38,6 +38,7 @@
           var myControllers = angular.module("myControllers", []);
           myControllers.controller('CommentsController', ['comments', function (comments) {
             console.log('in Comments controller.... number of comments '+comments.length);
+            this.comments = comments;
           }]);
           var myApplication = angular.module("myApplication", ["myControllers"]);
           fetchData().then(bootstrapApplication);
