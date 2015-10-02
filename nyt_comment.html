@@ -5,7 +5,7 @@
   {{usercomment.newswire[0].abstract}} 
   [ <a target="_blank" ng-href="{{usercomment.newswire[0].url}}">{{usercomment.newswire[0].title}}</a> 
     <a href ng-click="nytcomment.bylineClicked();">{{usercomment.newswire[0].byline}}</a> ]
-<p ng-show="nytcomment.showComment == 'true'" ng-model="nytcomment.showComment">
+<p ng-show="nytcomment.showComment" ng-model="nytcomment.showComment">
   {{usercomment.newswire[0].byline}}
 </p>
 </span>
