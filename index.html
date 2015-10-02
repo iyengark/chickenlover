@@ -35,8 +35,11 @@
 
     <script type="text/javascript">
       (function() {
-          var myApplication = angular.module("myApplication", []);
-
+          var myControllers = angular.module("myControllers", []);
+          myControllers.controller('ComentsCtrl as nytComments', ['comments', function (comments) {
+            console.log('in Comments controller.... number of comments '+comments.length);
+          }]);
+          var myApplication = angular.module("myApplication", ["myControllers"]);
           fetchData().then(bootstrapApplication);
 
           function fetchData() {
