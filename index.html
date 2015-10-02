@@ -70,9 +70,9 @@
               controllerAs: 'nytcomment'
             };
           })
-          .controller('NytCommentController', function () {
-            console.log('inside component NYT Comment controller.... '+usercomment);
-          });
+          .controller('NytCommentController', ['$scope', function ($scope) {
+            console.log('inside component NYT Comment controller.... '+$scope.usercomment);
+          }]);
 
           var myApplication = angular.module("myApplication", ["myControllers", "myDirectives"]);
           
