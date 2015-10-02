@@ -20,7 +20,7 @@
     <section class="main-content" ng-controller="CommentsController as nyt">
       <h3>
         <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true">
-          <span class="octicon octicon-link">NYTimes</span>
+          <span class="octicon octicon-link"></span>
         </a>
         <chickenlover-comments></chickenlover-comments>
 
@@ -71,7 +71,7 @@
             };
           })
           .controller('NytCommentController', ['$scope', function ($scope) {
-            console.log('inside component NYT Comment controller.... '+$scope.usercomment);
+            console.log('inside component NYT Comment controller.... '+$scope.usercomment.commentID);
           }]);
 
           var myApplication = angular.module("myApplication", ["myControllers", "myDirectives"]);
