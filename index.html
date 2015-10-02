@@ -23,6 +23,9 @@
           <span class="octicon octicon-link"></span>
         </a>
         <p ng-repeat="comment in nyt.comments">
+          <span>
+            <img ng-src="{{comment.newswire[0].multimedis[0].url}}">
+          </span>
           {{comment.newswire[0].abstract}} - {{comment.newswire[0].byline}}
         </p>
       </h3>
