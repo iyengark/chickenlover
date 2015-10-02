@@ -71,12 +71,12 @@
             };
           })
           .controller('NytCommentController', ['$scope', function ($scope) {
-$scope.showComment='false';
+this.showComment='false';
             console.log('inside component NYT Comment controller.... '+$scope.usercomment.commentID);
 
 this.bylineClicked = function() {
 console.log('byline clicked');
-$scope.showComment = !$scope.showComment;
+this.showComment = !this.showComment;
 };
           }]);
 
