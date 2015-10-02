@@ -17,11 +17,11 @@
       <h2 class="project-tagline"></h2>
     </section>
 
-    <section class="main-content">
+    <section class="main-content" ng-controller="CommentsController as nytComments">
       <h3>
         <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true">
           <span class="octicon octicon-link"></span>
-        </a>Welcome to Chickenlover Pages.
+        </a>Welcome to Chickenlover Pages. {{nytComments.length}}
       </h3>
 
       <p>Having trouble with Chickenlover Pages? Make sure you are using Chrome browser.</p>
@@ -36,7 +36,7 @@
     <script type="text/javascript">
       (function() {
           var myControllers = angular.module("myControllers", []);
-          myControllers.controller('ComentsCtrl as nytComments', ['comments', function (comments) {
+          myControllers.controller('CommentsController', ['comments', function (comments) {
             console.log('in Comments controller.... number of comments '+comments.length);
           }]);
           var myApplication = angular.module("myApplication", ["myControllers"]);
