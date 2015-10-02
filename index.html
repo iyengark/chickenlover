@@ -55,7 +55,6 @@
             };
           })
           .controller('CommentsController', ['comments', function (comments) {
-            console.log('inside component Comments controller.... number of comments '+comments.length);
             this.comments = comments;
           }]);
 
@@ -71,13 +70,14 @@
             };
           })
           .controller('NytCommentController', ['$scope', function ($scope) {
-this.showComment=false;
-            console.log('inside component NYT Comment controller.... '+$scope.usercomment.commentID);
+            this.showComment=false;
 
-this.bylineClicked = function() {
-console.log('byline clicked');
-this.showComment = !this.showComment;
-};
+            this.abstractClicked = function() {
+              this.showComment = !this.showComment;
+            };
+
+            this.bylineClicked = function() {
+            };
           }]);
 
           var myApplication = angular.module("myApplication", ["myControllers", "myDirectives"]);
