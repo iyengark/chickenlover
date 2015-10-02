@@ -44,7 +44,8 @@
               var $http = initInjector.get("$http");
 
               return $http.get("comments.json").then(function(response) {
-                  myApplication.vslur("comments", response.data.comments);
+                  myApplication.value("comments", response.data.comments);
+                  console.log('number of comments '+response.data.comments.length);
               }, function(errorResponse) {
                   // Handle error case
               });
