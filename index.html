@@ -74,7 +74,7 @@
 $scope.showComment='false';
             console.log('inside component NYT Comment controller.... '+$scope.usercomment.commentID);
 
-$scope.bylineClicked = function () {
+this.bylineClicked = function () {
 console.log('byline clicked');
 $scope.showComment = !showComment;
 }
