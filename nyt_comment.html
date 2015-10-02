@@ -1,8 +1,8 @@
 <span>
   <span>
-    <img ng-src={{usercomment.newswire[0].multimedia[0].url}}>
+    <a href ng-click="nytcomment.bylineClicked();"><img ng-src={{usercomment.newswire[0].multimedia[0].url}}></a>
   </span>
-  {{usercomment.newswire[0].abstract}} 
+  <a href ng-click="nytcomment.abstractClicked();">{{usercomment.newswire[0].abstract}}</a> 
   [ <a target="_blank" ng-href="{{usercomment.newswire[0].url}}">{{usercomment.newswire[0].title}}</a> 
     <a href ng-click="nytcomment.bylineClicked();">{{usercomment.newswire[0].byline}}</a> ]
 <p ng-show="nytcomment.showComment" ng-model="nytcomment.showComment">
