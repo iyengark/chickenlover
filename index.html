@@ -44,7 +44,7 @@
               var $http = initInjector.get("$http");
 
               return $http.get("comments.json").then(function(response) {
-                  myApplication.constant("config", response.data);
+                  myApplication.vslur("comments", response.data.comments);
               }, function(errorResponse) {
                   // Handle error case
               });
