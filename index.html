@@ -23,12 +23,12 @@
           <span class="octicon octicon-link">NYTimes</span>
         </a>
         <chickenlover-comments></chickenlover-comments>
-        <p ng-repeat="comment in nyt.comments">
+        <!--p ng-repeat="comment in nyt.comments">
           <span>
             <img ng-src={{comment.newswire[0].multimedia[0].url}}>
           </span>
           {{comment.newswire[0].abstract}} - {{comment.newswire[0].byline}}
-        </p>
+        </p-->
       </h3>
 
       <p>Having trouble with Chickenlover Pages? Make sure you are using Chrome browser.</p>
@@ -47,7 +47,23 @@
             console.log('in Comments controller.... number of comments '+comments.length);
             this.comments = comments;
           }]);
-          var myApplication = angular.module("myApplication", ["myControllers"]);
+          var myDirectives = angular.module("myDirectives", []);
+          myDirectives.directive('chickenloverComments', function() {
+            return {
+              scope: {},
+              templateUrl: 'comments_list.html',
+              replace: true,
+              controller: 'CommentsController',
+              controllerAs: 'nyt'
+            };
+          })
+          .controller('CommentsController', ['comments', function (comments) {
+            console.log('inside component Comments controller.... number of comments '+comments.length);
+            this.comments = comments;
+          });
+
+          var myApplication = angular.module("myApplication", ["myControllers", "myDirectives"]);
+          
           fetchData().then(bootstrapApplication);
 
           function fetchData() {
