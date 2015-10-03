@@ -56,12 +56,14 @@
           })
           .controller('CommentsController', ['comments', function (comments) {
             this.comments = comments;
+            this.byline = 'ALL';
           }]);
 
           myDirectives.directive('nytComment', function() {
             return {
               scope: {
                 usercomment: '='
+                , byline: '='
               },
               templateUrl: 'nyt_comment.html',
               replace: true,
