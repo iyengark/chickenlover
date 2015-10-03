@@ -92,14 +92,18 @@
                   for(i=0;i<comments.length;i++) {
                       addComment = false;
                       if (comments[i].userID == userid) {
-                         for(j=0;j<comments[i].newswire.length;j++) {
-                             if(comments[i].newswire[j].byline == byline) {
-                                 addComment = true;                    
-                             }
-                         }
-                         if (addComment){
-                             selectedComments.push(comments[i]);
-                         }
+                        if ('ALL' === byline) {
+                           addComment = true;                    
+                        } else {
+                           for(j=0;j<comments[i].newswire.length;j++) {
+                               if(comments[i].newswire[j].byline == byline) {
+                                   addComment = true;                    
+                               }
+                           }
+                        }
+                        if (addComment){
+                           selectedComments.push(comments[i]);
+                        }
                       }
                   }
                   return selectedComments;
