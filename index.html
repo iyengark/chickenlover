@@ -80,7 +80,29 @@
             };
           }]);
 
-          var myApplication = angular.module("myApplication", ["myControllers", "myDirectives"]);
+          var myFilters = angular.module("myFilters", []);
+          myFilters.filter("UserBylineFilter", function() {
+              return function(comments, postDate, location) {
+                  var addComment;
+                  var selectedComments = [];
+                  for(i=0;i<comments.length;i++) {
+                      addComment = false;
+                      if (comments[i].Location == location) {
+                         for(j=0;j<comments[i].Posts.length;j++) {
+                             if(comments[i].Posts[j].date == postDate) {
+                                 addComment = true;                    
+                             }
+                         }
+                         if (addComment){
+                             selectedComments.push(comments[i]);
+                         }
+                      }
+                  }
+                  return selectedComments;
+              };
+          });
+          
+          var myApplication = angular.module("myApplication", ["myControllers", "myDirectives","myFilters"]);
           
           fetchData().then(bootstrapApplication);
 
@@ -105,3 +127,4 @@
     </script>
   </body>
 </html>
+
