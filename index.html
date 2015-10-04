@@ -60,10 +60,9 @@
             nyt.byline = 'ALL';
             
             this.bylineClicked = function(e) {
-              var cByline = this.byline;
-              console.log('Current Byline......'+cByline);
+              console.log('Current Byline......'+nyt.byline);
               console.log('New Byline......'+e);
-              cByline = e;
+              nyt.byline = e;
             };
           }]);
 
