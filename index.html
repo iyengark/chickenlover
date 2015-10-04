@@ -63,7 +63,7 @@
             nyt.bylineClicked = function(e) {
               console.log('Current Byline......'+nyt.byline);
               console.log('New Byline......'+e);
-              $scope.$apply(nyt.byline = e);
+              nyt.byline = e;
             };
           }]);
 
