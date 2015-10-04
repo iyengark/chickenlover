@@ -60,7 +60,7 @@
             nyt.comments = comments;
             nyt.byline = 'ALL';
             
-            this.bylineClicked = function(e) {
+            nyt.bylineClicked = function(e) {
               console.log('Current Byline......'+nyt.byline);
               console.log('New Byline......'+e);
               nyt.byline = e;
@@ -94,7 +94,7 @@
             }
             nytcomment.commentBody = nytcomment.usercomment.commentBody;
 
-            this.abstractClicked = function() {
+            nytcomment.abstractClicked = function() {
               nytcomment.showComment = !nytcomment.showComment;
             };
 
