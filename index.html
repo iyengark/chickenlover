@@ -81,10 +81,11 @@
             };
           })
           .controller('NytCommentController', ['$scope', function ($scope) {
-            this.showComment=false;
+            var nytcomment = this;
+            nytcomment.showComment=false;
 
             this.abstractClicked = function() {
-              this.showComment = !this.showComment;
+              nytcomment.showComment = !nytcomment.showComment;
             };
 
           }]);
