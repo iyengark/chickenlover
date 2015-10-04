@@ -55,8 +55,9 @@
             };
           })
           .controller('CommentsController', ['comments', function (comments) {
-            this.comments = comments;
-            this.byline = 'ALL';
+            var nyt = this;
+            nyt.comments = comments;
+            nyt.byline = 'ALL';
             
             this.bylineClicked = function(e) {
               var cByline = this.byline;
