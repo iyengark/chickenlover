@@ -38,11 +38,8 @@
           })
           .controller('PageHeaderController', ['comments', function (comments) {
             var chp = this;
-            chp.comments = comments;
+            chp.headerByline = 'ALL';
 
-            chp.onAllBtnClick = function(e) {
-              console.log('All Button clicked......'+e);
-            };
           }]);
 
           myDirectives.directive('chickenloverComments', function() {
