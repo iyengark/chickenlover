@@ -28,7 +28,9 @@
 
           myDirectives.directive('chickenloverHeader', function() {
             return {
-              scope: {},
+              scope: {
+                onBylineClick: '&'
+              },
               templateUrl: 'chicken_header.html',
               replace: true,
               controller: 'PageHeaderController',
