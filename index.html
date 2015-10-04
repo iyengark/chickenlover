@@ -77,8 +77,8 @@
               templateUrl: 'nyt_comment.html',
               replace: true,
               controller: 'NytCommentController',
-              controllerAs: 'nytcomment',
-              bindToController: true, //required in 1.3+ with controllerAs
+              controllerAs: 'nytcomment'
+              //, bindToController: true, //required in 1.3+ with controllerAs
             };
           })
           .controller('NytCommentController', ['$scope', function ($scope) {
