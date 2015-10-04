@@ -83,11 +83,13 @@
           .controller('NytCommentController', ['$scope', function ($scope) {
             var nytcomment = this;
             nytcomment.showComment=false;
-            nytcomment.byline = $scope.usercomment.newswire[0].byline;
-            nytcomment.bylineImageUrl = $scope.usercomment.newswire[0].multimedia[0].url;
-            nytcomment.abstract = $scope.usercomment.newswire[0].abstract;
-            nytcomment.url = $scope.usercomment.newswire[0].url;
-            nytcomment.title = $scope.usercomment.newswire[0].title;
+            if($scope.usercomment.newswire.length > 0) {
+              nytcomment.byline = $scope.usercomment.newswire[0].byline;
+              nytcomment.bylineImageUrl = $scope.usercomment.newswire[0].multimedia[0].url;
+              nytcomment.abstract = $scope.usercomment.newswire[0].abstract;
+              nytcomment.url = $scope.usercomment.newswire[0].url;
+              nytcomment.title = $scope.usercomment.newswire[0].title;
+            }
             nytcomment.commentBody = $scope.usercomment.commentBody;
 
             this.abstractClicked = function() {
