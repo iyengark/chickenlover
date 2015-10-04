@@ -1,3 +1,5 @@
-<p ng-repeat="comment in nyt.comments | UserBylineFilter : '7440796' : nyt.byline" ng-model="nyt.byline">
-  <nyt-comment usercomment="comment" on-byline-click="nyt.bylineClicked"></nyt-comment>
-</p>
+<div ng-model="nyt.byline">
+  <p ng-repeat="comment in nyt.comments | UserBylineFilter : '7440796' : nyt.byline">
+    <nyt-comment usercomment="comment" on-byline-click="nyt.bylineClicked"></nyt-comment>
+  </p>
+</div>
