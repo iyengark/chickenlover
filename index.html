@@ -59,8 +59,8 @@
             this.byline = 'ALL';
             
             this.bylineClicked = function(e) {
-              console.log('Byline Clicked......'+e);
               console.log('Current Byline......'+this.byline);
+              console.log('New Byline......'+e);
               this.byline = e;
             };
           }]);
@@ -87,7 +87,7 @@
 
             this.bylineClicked = function(e) {
               console.log('Byline Clicked......'+e);
-              $scope.onBylineClick();
+              $scope.onBylineClick(e);
             };
           }]);
 
