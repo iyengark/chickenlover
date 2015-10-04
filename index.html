@@ -55,7 +55,7 @@
               bindToController: true, //required in 1.3+ with controllerAs
             };
           })
-          .controller('CommentsController', ['comments', function (comments) {
+          .controller('CommentsController', ['comments', '$scope', function (comments, $scope) {
             var nyt = this;
             nyt.comments = comments;
             nyt.byline = 'ALL';
@@ -63,7 +63,7 @@
             nyt.bylineClicked = function(e) {
               console.log('Current Byline......'+nyt.byline);
               console.log('New Byline......'+e);
-              nyt.byline = e;
+              $scope.$apply(nyt.byline = e);
             };
           }]);
 
