@@ -59,9 +59,10 @@
             this.byline = 'ALL';
             
             this.bylineClicked = function(e) {
-              console.log('Current Byline......'+byline);
+              var cByLine = this.byline;
+              console.log('Current Byline......'+cByline);
               console.log('New Byline......'+e);
-              byline = e;
+              cByline = e;
             };
           }]);
 
