@@ -136,7 +136,6 @@
 
               return $http.get("comments.json").then(function(response) {
                   myApplication.value("comments", response.data.comments);
-                  myApplication.value("byline", 'ALL');
                   console.log('number of comments '+response.data.comments.length);
               }, function(errorResponse) {
                   // Handle error case
