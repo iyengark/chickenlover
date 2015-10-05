@@ -4,7 +4,7 @@
   </span>
   <a href ng-click="nytcomment.abstractClicked();">{{nytcomment.abstract}}</a> 
   [ <a target="_blank" ng-href="{{nytcomment.url}}">{{nytcomment.title}}</a> 
-    <a href ng-click="nytcomment.onBylineClick()(nytcomment.byline)">{{nytcomment.byline}}</a> ]
+    <a href ng-click="nytcomment.onBylineClick()(nytcomment.byline)"><em>{{nytcomment.byline}}</em></a> ]
 <p ng-show="nytcomment.showComment" ng-model="nytcomment.showComment">
   {{nytcomment.commentBody}}
 </p>
