@@ -126,7 +126,7 @@
               };
           });
           
-          var myApplication = angular.module("myApplication", ["myControllers", "myDirectives","myFilters"]);
+          var myApplication = angular.module("myApplication", ["ngSanitize", "myControllers", "myDirectives","myFilters"]);
           
           fetchData().then(bootstrapApplication);
 
