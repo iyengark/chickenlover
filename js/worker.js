@@ -18,8 +18,6 @@ this.get = function (Url, Callback) {
 function getDataFromURL(url) { 
     Client = new HttpClient();
     Client.get(url, function (answer) {
-        // marking time. the sending mark is in main thread
-        console.log("responding at  "+window.performance.now());
         postMessage(answer);
     });  
 }
