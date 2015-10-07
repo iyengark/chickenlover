@@ -151,7 +151,7 @@
           
           var workerResponse;
           var fetchDataUsingWorker = function () {
-            var worker = new Worker('worker.js');
+            var worker = new Worker('js/worker.js');
             var defer = angular.injector(["ng"]).get("$q").defer();
             worker.onmessage = function(e) {           
               defer.resolve(e.data);
