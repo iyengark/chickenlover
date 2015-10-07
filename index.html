@@ -148,6 +148,22 @@
           var myApplication = angular.module("myApplication", ["ngSanitize", "myControllers", "myDirectives","myFilters"]);
           
           fetchData().then(bootstrapApplication);
+          
+          var workerResponse;
+          var fetchDataUsingWorker = function () {
+            var worker = new Worker('worker.js');
+            var defer = $q.defer();
+            worker.onmessage = function(e) {           
+              defer.resolve(e.data);
+              worker.terminate();
+            };
+
+            worker.postMessage("http://github.com/iyengark/chickenlover/comments.json");
+            return defer.promise;
+          }
+          fetchDataUsingWorker().then(function (workerReply) {
+            workerResponse = workerReply;
+          });
 
       }());
     </script>
