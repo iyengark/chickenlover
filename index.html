@@ -159,8 +159,10 @@
             };
 
             worker.postMessage("http://iyengark.github.io/chickenlover/comments.json");
-            // marking time. the response mark is in webworker
+            // marking time. 
             console.log("sending at  "+window.performance.now());
+            // marking time.
+            console.log("responding at  "+window.performance.now());
             return defer.promise;
           }
           fetchDataUsingWorker().then(function (workerReply) {
