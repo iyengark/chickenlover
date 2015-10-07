@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-sanitize.min.js"></script>
     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/q.js/1.0.0/q.min.js"></script-->
-    <script src="https://cdn.jsdelivr.net/q/1.0.1/q.min.js"></script>
+    <!--script src="https://cdn.jsdelivr.net/q/1.0.1/q.min.js"></script-->
   </head>
   <body>
     <chickenlover-comments></chickenlover-comments>
@@ -154,7 +154,7 @@
           var workerResponse;
           var fetchDataUsingWorker = function () {
             var worker = new Worker('worker.js');
-            var defer = $q.defer();
+            var defer = angular.injector(["ng"]).get("$q").defer();
             worker.onmessage = function(e) {           
               defer.resolve(e.data);
               worker.terminate();
