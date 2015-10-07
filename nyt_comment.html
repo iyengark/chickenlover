@@ -4,8 +4,8 @@
   </span>
   <a href ng-click="nytcomment.abstractClicked();">{{nytcomment.abstract}}</a> 
   [ <a target="_blank" ng-href="{{nytcomment.url}}">{{nytcomment.title}}</a> &raquo;&nbsp;
-    <a href ng-click="nytcomment.onBylineClick()(nytcomment.byline)"><em>{{nytcomment.byline}}</em></a> &raquo;&nbsp;
-    <span>{{nytcomment.recommendations}}</span> &raquo;&nbsp;
-    <span ng-show="nytcomment.editorsSelection">Editor's pick!!!</span> ]
+    <a href ng-click="nytcomment.onBylineClick()(nytcomment.byline)"><em>{{nytcomment.byline}}</em></a> ]&nbsp;&raquo;&nbsp;
+    <span>{{nytcomment.recommendations}}</span> &nbsp;
+    <span ng-show="nytcomment.editorsSelection">&raquo;&nbsp;Editor's pick!!!</span>
 <p ng-show="nytcomment.showComment" ng-model="nytcomment.showComment" ng-bind-html="nytcomment.commentBody"></p>
 </span>
