@@ -162,7 +162,7 @@
             return defer.promise;
           }
           fetchDataUsingWorker().then(function (workerReply) {
-            workerResponse = workerReply;
+            workerResponse = JSON.parse(workerReply);
           });
 
       }());
