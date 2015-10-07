@@ -163,7 +163,7 @@
           }
           fetchDataUsingWorker().then(function (workerReply) {
             workerResponse = JSON.parse(workerReply);
-            console.log('number of comments from web worker '+workerResponse.length);
+            console.log('number of comments from web worker '+workerResponse.comments.length);
           });
 
       }());
