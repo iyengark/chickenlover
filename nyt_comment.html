@@ -3,7 +3,9 @@
     <a href ng-click="nytcomment.onBylineClick()(nytcomment.byline)"><img ng-src={{nytcomment.bylineImageUrl}}></a>
   </span>
   <a href ng-click="nytcomment.abstractClicked();">{{nytcomment.abstract}}</a> 
-  [ <a target="_blank" ng-href="{{nytcomment.url}}">{{nytcomment.title}}</a> 
-    <a href ng-click="nytcomment.onBylineClick()(nytcomment.byline)"><em>{{nytcomment.byline}}</em></a> ]
+  [ <a target="_blank" ng-href="{{nytcomment.url}}">{{nytcomment.title}}</a> &raquo;&nbsp;
+    <a href ng-click="nytcomment.onBylineClick()(nytcomment.byline)"><em>{{nytcomment.byline}}</em></a> &raquo;&nbsp;
+    <span></span> &raquo;&nbsp;
+    <span></span> ]
 <p ng-show="nytcomment.showComment" ng-model="nytcomment.showComment" ng-bind-html="nytcomment.commentBody"></p>
 </span>
