@@ -158,14 +158,12 @@
               worker.terminate();
             };
 
-            worker.postMessage("http://iyengark.github.io/chickenlover/comments.json");
-            // marking time. 
             console.log("sending at  "+window.performance.now());
-            // marking time.
-            console.log("responding at  "+window.performance.now());
+            worker.postMessage("http://iyengark.github.io/chickenlover/comments.json");
             return defer.promise;
           }
           fetchDataUsingWorker().then(function (workerReply) {
+            console.log("response received at  "+window.performance.now());
             workerResponse = JSON.parse(workerReply);
             console.log('number of comments from web worker '+workerResponse.comments.length);
           });
