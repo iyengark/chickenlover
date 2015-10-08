@@ -162,12 +162,12 @@
             worker.postMessage("http://iyengark.github.io/chickenlover/comments.json");
             return defer.promise;
           }
-          fetchDataUsingWorker().then(function (workerReply) {
+          /*fetchDataUsingWorker().then(function (workerReply) {
             console.log("response received at  "+window.performance.now());
             workerResponse = JSON.parse(workerReply);
             console.log('number of comments from web worker '+workerResponse.comments.length);
           });
-
+          */
       }());
     </script>
   </body>
