@@ -51,14 +51,14 @@
               controller: 'CommentsController',
               controllerAs: 'nyt',
               bindToController: true, //required in 1.3+ with controllerAs
-              compile: {
+              compile: function(element, attributes) {
                 //console.log('compile code here...');
                 //var dummy = '';
                 return {
-                  pre: function() {
+                  pre: function(scope, element, attributes, controller, transcludeFn) {
                     console.log('pre-link code here...');
                   },
-                  post: function() {
+                  post: function(scope, element, attributes, controller, transcludeFn) {
                     console.log('post-link code here...');
                   }
                 };
