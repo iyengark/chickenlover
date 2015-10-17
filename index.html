@@ -60,6 +60,12 @@
                   },
                   post: function(scope, element, attributes, controller, transcludeFn) {
                     console.log('post-link code here...'+dummy);
+                    element.bind("mouseover", function(e){    
+                      console.log('mouseover code here...'+dummy);
+                    });
+                    element.bind("mouseout", function(e){
+                      console.log('mouseout code here...'+dummy);
+                    });
                   }
                 };
               }
