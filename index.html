@@ -52,22 +52,14 @@
               controllerAs: 'nyt',
               bindToController: true, //required in 1.3+ with controllerAs
               compile: function(element, attributes) {
-                console.log('compile code here...');
+                //console.log('compile code here...');
                 var dummy = 'dummy';
                 return {
                   pre: function(scope, element, attributes, controller, transcludeFn) {
-                    console.log('pre-link code here...'+dummy);
+                    //console.log('pre-link code here...'+dummy);
                   },
                   post: function(scope, element, attributes, controller, transcludeFn) {
-                    console.log('post-link code here...'+dummy);
-                    /*element.bind("mouseover", function(e) {    
-                      console.log('mouseover code here...'+dummy);
-                      e.stopPropagation();
-                    });
-                    element.bind("mouseout", function(e) {
-                      console.log('mouseout code here...'+dummy);
-                      e.stopPropagation();
-                    });*/
+                    //console.log('post-link code here...'+dummy);
                   }
                 };
               }
@@ -94,8 +86,28 @@
               templateUrl: 'nyt_comment.html',
               replace: true,
               controller: 'NytCommentController',
-              controllerAs: 'nytcomment'
-              , bindToController: true, //required in 1.3+ with controllerAs
+              controllerAs: 'nytcomment',
+              bindToController: true, //required in 1.3+ with controllerAs
+              compile: function(element, attributes) {
+                console.log('nytComment compile code here...');
+                var dummy = 'dummy';
+                return {
+                  pre: function(scope, element, attributes, controller, transcludeFn) {
+                    console.log('nytComment pre-link code here...'+dummy);
+                  },
+                  post: function(scope, element, attributes, controller, transcludeFn) {
+                    console.log('nytComment post-link code here...'+dummy);
+                    element.bind("mouseover", function(e) {    
+                      console.log('nytComment mouseover code here...'+dummy);
+                      e.stopPropagation();
+                    });
+                    element.bind("mouseout", function(e) {
+                      console.log('nytComment mouseout code here...'+dummy);
+                      e.stopPropagation();
+                    });
+                  }
+                };
+              }
             };
           })
           .controller('NytCommentController', function () {
