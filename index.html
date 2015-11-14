@@ -101,14 +101,12 @@
                     console.log('nytComment post-link code here...'+dummy);
                     element.bind("mouseover", function(e) {    
                       if(e.target && e.target.id.slice(0, 8) === 'abstract') {
-                        console.log('nytComment mouseover...'+e.target.id);
                         scope.$apply(controller.toggle(true));
                       }
                       e.stopPropagation();
                     });
                     element.bind("mouseout", function(e) {
                       if(e.target && e.target.id.slice(0, 8) === 'abstract') {
-                        console.log('nytComment mouseout...'+e.target.id);
                         scope.$apply(controller.toggle(false));
                       }
                       e.stopPropagation();
