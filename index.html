@@ -101,13 +101,13 @@
                     //console.log('nytComment post-link code here...'+dummy);
                     element.bind("mouseover", function(e) {    
                       if(e.target && e.target.id.slice(0, 8) === 'abstract') {
-                        scope.$apply(controller.toggle(true));
+                        //scope.$apply(controller.toggle(true));
                       }
                       e.stopPropagation();
                     });
                     element.bind("mouseout", function(e) {
                       if(e.target && e.target.id.slice(0, 8) === 'abstract') {
-                        scope.$apply(controller.toggle(false));
+                        //scope.$apply(controller.toggle(false));
                       }
                       e.stopPropagation();
                     });
