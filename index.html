@@ -80,7 +80,7 @@
           myDirectives.directive('nytComment', function() {
             return {
               scope: {
-                commentNo: '=',
+                commentno: '=',
                 usercomment: '='
                 , onBylineClick: '&'
               },
@@ -97,7 +97,7 @@
                     console.log('nytComment pre-link code here...'+dummy);
                   },
                   post: function(scope, element, attributes, controller, transcludeFn) {
-                    console.log('nytComment post-link code here...'+dummy+' '+scope.commentNo);
+                    console.log('nytComment post-link code here...'+dummy+' '+attributes.commentno);
                     element.bind("mouseover", function(e) {    
                       console.log('nytComment mouseover code here...'+dummy);
                       e.stopPropagation();
