@@ -11,7 +11,7 @@
       <div ng-model="nyt.byline">
         <p ng-repeat="comment in nyt.comments | UserBylineFilter : '7440796' : nyt.byline" 
             id="nyt_{{comment.commentID}}">
-          <nyt-comment usercomment="comment" on-byline-click="nyt.bylineClicked"></nyt-comment>
+          <nyt-comment comment-no="$index" usercomment="comment" on-byline-click="nyt.bylineClicked"></nyt-comment>
         </p>
       </div>
     
