@@ -1,4 +1,4 @@
-# chickenlover @NYTimes
+# chickenlover @NYTimes !["yin & yang"](/images/favicon.ico "Yin & Yang")
 
 git pull
 
