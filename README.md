@@ -1,5 +1,16 @@
-# chickenlover
-NYTimes
+# chickenlover @NYTimes
+
+git pull
+
+python nytapi.py
+
+git add comments.json
+
+git commit -a -m "comments MMM DD YYYY"
+
+git push origin gh-pages
+
+========================
 * http://www.toptal.com/angular-js/top-18-most-common-angularjs-developer-mistakes
 * Some advanced AngularJS concepts by Arun Mahendrakar ( https://www.youtube.com/watch?v=9uy3WEPG3vI )
 * Advanced Directives with Angular JS by David Mosher ( https://www.youtube.com/watch?v=Ty8XcASK9js )
