@@ -70,10 +70,10 @@
             nyt.comments = comments;
             nyt.byline = 'ALL';
             
-            nyt.bylineClicked = function(e) {
-              console.log('Current Byline......'+nyt.byline);
-              console.log('New Byline......'+e);
-              nyt.byline = e;
+            nyt.bylineClicked = function(newByline) {
+              //console.log('Current Byline......'+nyt.byline);
+              //console.log('New Byline......'+newByline);
+              nyt.byline = newByline;
             };
           }]);
 
