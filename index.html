@@ -91,19 +91,19 @@
               bindToController: true, //required in 1.3+ with controllerAs
               compile: function(element, attributes) {
                 console.log('nytComment compile code here...');
-                var dummy = 'dummy';
+                var dummy = 'foo';
                 return {
                   pre: function(scope, element, attributes, controller, transcludeFn) {
                     console.log('nytComment pre-link code here...'+dummy);
                   },
                   post: function(scope, element, attributes, controller, transcludeFn) {
-                    console.log('nytComment post-link code here...'+dummy+' '+attributes.commentno);
+                    console.log('nytComment post-link code here...'+dummy);
                     element.bind("mouseover", function(e) {    
-                      console.log('nytComment mouseover code here...'+dummy);
+                      console.log('nytComment mouseover... '+e.target.id);
                       e.stopPropagation();
                     });
                     element.bind("mouseout", function(e) {
-                      console.log('nytComment mouseout code here...'+dummy);
+                      console.log('nytComment mouseout...'+e.target.id);
                       e.stopPropagation();
                     });
                   }
