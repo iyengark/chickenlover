@@ -1,10 +1,10 @@
 <span>
   <span>
-    <a href id="byline_{{nytcomment.commentno}}" ng-click="nytcomment.onBylineClick()(nytcomment.byline)"><img ng-src={{nytcomment.bylineImageUrl}}></a>
+    <a href id="byline1_{{nytcomment.commentno}}" ng-click="nytcomment.onBylineClick()(nytcomment.byline)"><img ng-src={{nytcomment.bylineImageUrl}}></a>
   </span>
-  <a href ng-click="nytcomment.abstractClicked();">{{nytcomment.abstract}}</a> 
-  [ <a target="_blank" ng-href="{{nytcomment.url}}">{{nytcomment.title}}</a> &raquo;&nbsp;
-    <a href ng-click="nytcomment.onBylineClick()(nytcomment.byline)"><em>{{nytcomment.byline}}</em></a> ]&nbsp;&raquo;&nbsp;
+  <a href id="abstract_{{nytcomment.commentno}}" ng-click="nytcomment.abstractClicked();">{{nytcomment.abstract}}</a> 
+  [ <a id="title_{{nytcomment.commentno}}" target="_blank" ng-href="{{nytcomment.url}}">{{nytcomment.title}}</a> &raquo;&nbsp;
+    <a id="byline2_{{nytcomment.commentno}}" href ng-click="nytcomment.onBylineClick()(nytcomment.byline)"><em>{{nytcomment.byline}}</em></a> ]&nbsp;&raquo;&nbsp;
     <span>{{nytcomment.recommendations}}</span> &nbsp;
     <span ng-show="nytcomment.editorsSelection">&raquo;&nbsp;Editor's pick!!!</span>
 <p ng-show="nytcomment.showComment" ng-model="nytcomment.showComment" ng-bind-html="nytcomment.commentBody"></p>
