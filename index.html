@@ -100,10 +100,12 @@
                     console.log('nytComment post-link code here...'+dummy);
                     element.bind("mouseover", function(e) {    
                       console.log('nytComment mouseover... '+e.target.id);
+                      controller.toggle(true);
                       e.stopPropagation();
                     });
                     element.bind("mouseout", function(e) {
                       console.log('nytComment mouseout...'+e.target.id);
+                      controller.toggle(false);
                       e.stopPropagation();
                     });
                   }
@@ -130,6 +132,10 @@
 
             nytcomment.abstractClicked = function() {
               nytcomment.showComment = !nytcomment.showComment;
+            };
+            
+            nytcomment.toggle - function(show) {
+              nytcomment.showComment = show;
             };
 
           });
