@@ -70,9 +70,14 @@
           .controller('CommentsController', ['NYTimesData', 'comments', '$scope', 
             function (NYTimesData, comments, $scope) {
               var nyt = this;
-              nyt.comments = comments;
-              NYTimesData.getComments(nyt.feedfile).then(console.log('NYTimesData.getComments() successful.'));
               nyt.byline = 'ALL';
+              //nyt.comments = comments;
+              NYTimesData.getComments(nyt.feedfile).then(function(response) {
+                    nyt.comments = response.data.comments;
+                    console.log('number of comments fetched '+nyt.comments.length);
+                }, function(errorResponse) {
+                    console.log('Error encountered in fetching comments in CommentsController.');
+                });
               
               nyt.bylineClicked = function(newByline) {
                 //console.log('Current Byline......'+nyt.byline);
