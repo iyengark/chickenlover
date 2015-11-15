@@ -17,3 +17,4 @@ git push origin gh-pages
 * [Complex forms with advanced directives in AngularJS by Matias Niemela] ( https://www.youtube.com/watch?v=G5MzkDJQkoQ )
 * [Deep Dive into Custom Directives - NG-Conf 2014 by Dave Smith] ( https://www.youtube.com/watch?v=UMkd0nYmLzY )
 * http://www.toptal.com/angular-js/top-18-most-common-angularjs-developer-mistakes
+* [Thoughtram.IO] (http://blog.thoughtram.io/)
