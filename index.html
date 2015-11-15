@@ -187,7 +187,7 @@
 
           var myApplication = angular.module("myApplication", ["ngSanitize", "myControllers", "myDirectives","myFilters"]);
 
-          fetchData("comments.json").then(bootstrapApplication);
+          //fetchData("comments.json").then(bootstrapApplication);
 
           var fetchDataUsingWorker = function (feedfile) {
             var worker = new Worker('js/worker.js');
@@ -202,17 +202,16 @@
 
             defer.promise.then(function (workerReply) {
               console.log("response received at  "+window.performance.now());
-              workerResponse = JSON.parse(workerReply);
+              //workerResponse = JSON.parse(workerReply);
+              myApplication.value("comments", JSON.parse(workerReply).comments);
+              console.log('number of comments from web worker '+JSON.parse(workerReply).comments.length);
             });
 
             return defer.promise;
           }
 
-          var workerResponse;
-          //fetchDataUsingWorker("comments.json").then(bootstrapApplication);
-          fetchDataUsingWorker("comments.json").then(function() {
-            console.log('number of comments from web worker '+workerResponse.comments.length);
-          });
+          //var workerResponse;
+          fetchDataUsingWorker("comments.json").then(bootstrapApplication);
 
           /*fetchDataUsingWorker().then(function (workerReply) {
             console.log("response received at  "+window.performance.now());
