@@ -168,6 +168,13 @@
           });
 
           var myServices = angular.module("myServices", []);
+          myServices.factory("NYTCommentsData", function() {
+            return {
+              getComments: function() {
+                console.log('this is the service call to get comments data....');
+              };
+            };
+          });
 
           var myApplication = angular.module("myApplication", ["ngSanitize", 
               "myControllers", "myDirectives", "myServices",
