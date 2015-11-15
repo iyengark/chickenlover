@@ -158,9 +158,8 @@
           });
 
           var myFilters = angular.module("myFilters", []);
-          myFilters.filter("UserBylineFilter", function() {
-            //'7440796'
-            return function(comments, byline, userid) {
+          myFilters.filter("UserBylineFilter", ["USER_ID", function(userid) {
+            return function(comments, byline) {
                 var addComment;
                 var selectedComments = [];
                 for(i=0;i<comments.length;i++) {
@@ -182,7 +181,7 @@
                 }
                 return selectedComments;
             };
-          });
+          }]);
 
           var myServices = angular.module("myServices", []);
           myServices.factory("NYTimesData", ['$http', '$window', function($http, $window) {
@@ -214,6 +213,7 @@
           var myApplication = angular.module("myApplication", ["ngSanitize", 
               "myControllers", "myDirectives", "myServices",
               "myFilters"]);
+          myApplication.constant("USER_ID", '7440796');
 
           function bootstrapApplication() {
               angular.element(document).ready(function() {
