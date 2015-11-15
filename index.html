@@ -18,10 +18,9 @@
     <script type="text/javascript">
       (function() {
           var myControllers = angular.module("myControllers", []);
-          myControllers.controller('CommentsController', ['comments', function (comments) {
-            console.log('in Comments controller.... number of comments '+comments.length);
-            this.comments = comments;
-          }]);
+          myControllers.controller('CommentsController', function () {
+            console.log('in Comments controller.... is this needed at all? ');
+          });
 
           var myDirectives = angular.module("myDirectives", []);
 
