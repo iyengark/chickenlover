@@ -166,8 +166,12 @@
                   return selectedComments;
               };
           });
-          
-          var myApplication = angular.module("myApplication", ["ngSanitize", "myControllers", "myDirectives","myFilters"]);
+
+          var myServices = angular.module("myServices", []);
+
+          var myApplication = angular.module("myApplication", ["ngSanitize", 
+              "myControllers", "myDirectives", "myServices",
+              "myFilters"]);
 
           function bootstrapApplication() {
               angular.element(document).ready(function() {
