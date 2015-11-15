@@ -13,7 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-sanitize.min.js"></script>
   </head>
   <body>
-    <chickenlover-comments></chickenlover-comments>
+    <chickenlover-comments data-feedfile="comments.json"></chickenlover-comments>
     
     <script type="text/javascript">
       (function() {
@@ -45,7 +45,9 @@
 
           myDirectives.directive('chickenloverComments', function() {
             return {
-              scope: {},
+              scope: {
+                feedfile: '@'
+              },
               templateUrl: 'comments_list.html',
               replace: true,
               controller: 'CommentsController',
@@ -59,7 +61,7 @@
                     //console.log('pre-link code here...'+dummy);
                   },
                   post: function(scope, element, attributes, controller, transcludeFn) {
-                    //console.log('post-link code here...'+dummy);
+                    console.log('post-link code here... input is from '+attributes.feedfile);
                   }
                 };
               }
