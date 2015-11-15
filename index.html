@@ -67,11 +67,11 @@
               }
             };
           })
-          .controller('CommentsController', ['NYTCommentsData', 'comments', '$scope', 
-            function (NYTCommentsData, comments, $scope) {
+          .controller('CommentsController', ['NYTimesData', 'comments', '$scope', 
+            function (NYTimessData, comments, $scope) {
               var nyt = this;
               nyt.comments = comments;
-              NYTCommentsData.getComments(nyt.feedfile);
+              NYTimesData.getComments(nyt.feedfile).then(console.log('NYTimes.getComments() successful.'));
               nyt.byline = 'ALL';
               
               nyt.bylineClicked = function(newByline) {
@@ -171,13 +171,19 @@
           });
 
           var myServices = angular.module("myServices", []);
-          myServices.factory("NYTCommentsData", function() {
+          myServices.factory("NYTimessData", ['$http', function($http) {
             return {
               getComments: function(feedfile) {
                 console.log('this is the service call to get comments data from....'+feedfile);
+                return $http.get(feedfile).then(function(response) {
+                    //myApplication.value("comments", response.data.comments);
+                    console.log('number of comments '+response.data.comments.length);
+                }, function(errorResponse) {
+                    console.log('Error encountered in NYTimesData.getComments()');
+                });
               }
             };
-          });
+          }]);
 
           var myApplication = angular.module("myApplication", ["ngSanitize", 
               "myControllers", "myDirectives", "myServices",
