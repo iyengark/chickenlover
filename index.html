@@ -167,11 +167,11 @@
               };
           });
           
-          function fetchData() {
+          function fetchData(feedfile) {
               var initInjector = angular.injector(["ng"]);
               var $http = initInjector.get("$http");
 
-              return $http.get("comments.json").then(function(response) {
+              return $http.get(feedfile).then(function(response) {
                   myApplication.value("comments", response.data.comments);
                   console.log('number of comments '+response.data.comments.length);
               }, function(errorResponse) {
@@ -187,7 +187,7 @@
 
           var myApplication = angular.module("myApplication", ["ngSanitize", "myControllers", "myDirectives","myFilters"]);
           
-          fetchData().then(bootstrapApplication);
+          fetchData("comments.json").then(bootstrapApplication);
           
           var workerResponse;
           var fetchDataUsingWorker = function () {
