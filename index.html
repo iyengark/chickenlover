@@ -74,7 +74,7 @@
                 function(response) {
                   console.log('successful return from NYTimesData.getCommentsUsingWebWorker().')
                   console.log('NYTimesData.getCommentsUsingWebWorker(): number of comments fetched '+nyt.comments.length);
-                  $scope.apply(nyt.comments = JSON.parse(response).comments);
+                  $scope.$apply(nyt.comments = JSON.parse(response).comments);
                 }, function(errorResponse) {
                     console.log('Error encountered in fetching comments using NYTimesData.getCommentsUsingWebWorker().');
                 });
