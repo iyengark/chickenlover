@@ -206,7 +206,7 @@
               },
               getCommentsUsingWebWorker: function(feedfile) {
                 console.log('service to fetch comments data async using Web Workers.');
-                fetchDataUsingWorker(feedfile);
+                return fetchDataUsingWorker(feedfile);
               }
             };
           }]);
