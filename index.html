@@ -71,10 +71,14 @@
               nyt.byline = 'ALL';
               nyt.comments = [];
               NYTimesData.getCommentsUsingWebWorker(nyt.feedfile).then(
-                function() {
+                function(response) {
                   console.log('successful return from NYTimesData.getCommentsUsingWebWorker().')
+                  nyt.comments = response.data.comments;
+                  console.log('NYTimesData.getCommentsUsingWebWorker(): number of comments fetched '+nyt.comments.length);
+                }, function(errorResponse) {
+                    console.log('Error encountered in fetching comments using NYTimesData.getCommentsUsingWebWorker().');
                 });
-                
+              /*  
               NYTimesData.getComments(nyt.feedfile).then(
                 function(response) {
                     nyt.comments = response.data.comments;
@@ -82,7 +86,7 @@
                 }, function(errorResponse) {
                     console.log('Error encountered in fetching comments in CommentsController.');
                 });
-              
+              */
               nyt.bylineClicked = function(newByline) {
                 //console.log('Current Byline......'+nyt.byline);
                 //console.log('New Byline......'+newByline);
