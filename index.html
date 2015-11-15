@@ -68,7 +68,7 @@
             };
           })
           .controller('CommentsController', ['NYTimesData', 'comments', '$scope', 
-            function (NYTimessData, comments, $scope) {
+            function (NYTimesData, comments, $scope) {
               var nyt = this;
               nyt.comments = comments;
               NYTimesData.getComments(nyt.feedfile).then(console.log('NYTimesData.getComments() successful.'));
