@@ -159,28 +159,29 @@
 
           var myFilters = angular.module("myFilters", []);
           myFilters.filter("UserBylineFilter", function() {
-              return function(comments, userid, byline) {
-                  var addComment;
-                  var selectedComments = [];
-                  for(i=0;i<comments.length;i++) {
-                      addComment = false;
-                      if (comments[i].userID == userid) {
-                        if ('ALL' === byline) {
-                           addComment = true;                    
-                        } else {
-                           for(j=0;j<comments[i].newswire.length;j++) {
-                               if(comments[i].newswire[j].byline == byline) {
-                                   addComment = true;                    
-                               }
-                           }
-                        }
-                        if (addComment){
-                           selectedComments.push(comments[i]);
-                        }
+            //'7440796'
+            return function(comments, byline, userid) {
+                var addComment;
+                var selectedComments = [];
+                for(i=0;i<comments.length;i++) {
+                    addComment = false;
+                    if (comments[i].userID == userid) {
+                      if ('ALL' === byline) {
+                         addComment = true;                    
+                      } else {
+                         for(j=0;j<comments[i].newswire.length;j++) {
+                             if(comments[i].newswire[j].byline == byline) {
+                                 addComment = true;                    
+                             }
+                         }
                       }
-                  }
-                  return selectedComments;
-              };
+                      if (addComment){
+                         selectedComments.push(comments[i]);
+                      }
+                    }
+                }
+                return selectedComments;
+            };
           });
 
           var myServices = angular.module("myServices", []);
