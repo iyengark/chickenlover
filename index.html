@@ -70,7 +70,11 @@
               var nyt = this;
               nyt.byline = 'ALL';
               nyt.comments = [];
-              NYTimes.getCommentsUsingWebWorker(nyt.feedfile).then(console.log('successful return from NYTimes.getCommentsUsingWebWorker().'));
+              NYTimesData.getCommentsUsingWebWorker(nyt.feedfile).then(
+                function() {
+                  console.log('successful return from NYTimesData.getCommentsUsingWebWorker().')
+                });
+                
               NYTimesData.getComments(nyt.feedfile).then(
                 function(response) {
                     nyt.comments = response.data.comments;
