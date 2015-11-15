@@ -180,12 +180,7 @@
             return {
               getComments: function(feedfile) {
                 console.log('this is the service call to get comments data from....'+feedfile);
-                return $http.get(feedfile).then(function(response) {
-                    //myApplication.value("comments", response.data.comments);
-                    console.log('number of comments '+response.data.comments.length);
-                }, function(errorResponse) {
-                    console.log('Error encountered in NYTimesData.getComments()');
-                });
+                return $http.get(feedfile);
               }
             };
           }]);
