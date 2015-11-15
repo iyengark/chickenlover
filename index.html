@@ -180,7 +180,6 @@
           myServices.factory("NYTimesData", ['$http', function($http) {
             return {
               getComments: function(feedfile) {
-                console.log('this is the service call to get comments data from....'+feedfile);
                 return $http.get(feedfile);
               }
             };
@@ -195,6 +194,9 @@
                   angular.bootstrap(document, ["myApplication"]);
               });
           }
+
+          bootstrapApplication();
+
           /*
           function fetchData(feedfile) {
               var initInjector = angular.injector(["ng"]);
@@ -210,6 +212,7 @@
 
           fetchData("comments.json").then(bootstrapApplication);
           */
+          /*
           function fetchDataUsingWorker(feedfile) {
             var worker = new Worker('js/worker.js');
             var defer = angular.injector(["ng"]).get("$q").defer();
@@ -232,7 +235,7 @@
           }
 
           fetchDataUsingWorker("comments.json").then(bootstrapApplication);
-
+          */
       }());
     </script>
   </body>
