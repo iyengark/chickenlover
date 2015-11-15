@@ -71,8 +71,9 @@
             function (NYTimesData, comments, $scope) {
               var nyt = this;
               nyt.byline = 'ALL';
-              //nyt.comments = comments;
-              NYTimesData.getComments(nyt.feedfile).then(function(response) {
+              nyt.comments = [];
+              NYTimesData.getComments(nyt.feedfile).then(
+                function(response) {
                     nyt.comments = response.data.comments;
                     console.log('number of comments fetched '+nyt.comments.length);
                 }, function(errorResponse) {
