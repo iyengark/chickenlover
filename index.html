@@ -167,6 +167,14 @@
               };
           });
           
+          var myApplication = angular.module("myApplication", ["ngSanitize", "myControllers", "myDirectives","myFilters"]);
+
+          function bootstrapApplication() {
+              angular.element(document).ready(function() {
+                  angular.bootstrap(document, ["myApplication"]);
+              });
+          }
+          /*
           function fetchData(feedfile) {
               var initInjector = angular.injector(["ng"]);
               var $http = initInjector.get("$http");
@@ -179,17 +187,9 @@
               });
           }
 
-          function bootstrapApplication() {
-              angular.element(document).ready(function() {
-                  angular.bootstrap(document, ["myApplication"]);
-              });
-          }
-
-          var myApplication = angular.module("myApplication", ["ngSanitize", "myControllers", "myDirectives","myFilters"]);
-
-          //fetchData("comments.json").then(bootstrapApplication);
-
-          var fetchDataUsingWorker = function (feedfile) {
+          fetchData("comments.json").then(bootstrapApplication);
+          */
+          function fetchDataUsingWorker(feedfile) {
             var worker = new Worker('js/worker.js');
             var defer = angular.injector(["ng"]).get("$q").defer();
             worker.onmessage = function(e) {           
@@ -210,14 +210,8 @@
             return defer.promise;
           }
 
-          //var workerResponse;
           fetchDataUsingWorker("comments.json").then(bootstrapApplication);
 
-          /*fetchDataUsingWorker().then(function (workerReply) {
-            console.log("response received at  "+window.performance.now());
-            workerResponse = JSON.parse(workerReply);
-            console.log('number of comments from web worker '+workerResponse.comments.length);
-          });
           */
       }());
     </script>
