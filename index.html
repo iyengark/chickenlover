@@ -70,6 +70,7 @@
               var nyt = this;
               nyt.byline = 'ALL';
               nyt.comments = [];
+              NYTimes.getCommentsUsingWebWorker(nyt.feedfile).then(console.log('successful return from NYTimes.getCommentsUsingWebWorker().'));
               NYTimesData.getComments(nyt.feedfile).then(
                 function(response) {
                     nyt.comments = response.data.comments;
@@ -175,10 +176,33 @@
           });
 
           var myServices = angular.module("myServices", []);
-          myServices.factory("NYTimesData", ['$http', function($http) {
+          myServices.factory("NYTimesData", ['$http', '$window', function($http, $window) {
+            function fetchDataUsingWorker(feedfile) {
+              var worker = new Worker('js/worker.js');
+              var defer = angular.injector(["ng"]).get("$q").defer();
+              worker.onmessage = function(e) {           
+                defer.resolve(e.data);
+                worker.terminate();
+              };
+  
+              console.log("sending at  "+$window.performance.now());
+              worker.postMessage("http://iyengark.github.io/chickenlover/"+feedfile);
+  
+              defer.promise.then(function (workerReply) {
+                console.log("NYTimesData.fetchDataUsingWorker(): response received at  "+$window.performance.now());
+                console.log('NYTimesData.fetchDataUsingWorker(): number of comments '+JSON.parse(workerReply).comments.length);
+              });
+  
+              return defer.promise;
+            }
+
             return {
               getComments: function(feedfile) {
                 return $http.get(feedfile);
+              },
+              getCommentsUsingWebWorker: function(feedfile) {
+                console.log('service to fetch comments data async using Web Workers.');
+                fetchDataUsingWorker(feedfile);
               }
             };
           }]);
