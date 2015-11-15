@@ -186,11 +186,10 @@
           }
 
           var myApplication = angular.module("myApplication", ["ngSanitize", "myControllers", "myDirectives","myFilters"]);
-          
+
           fetchData("comments.json").then(bootstrapApplication);
-          
-          var workerResponse;
-          var fetchDataUsingWorker = function () {
+
+          var fetchDataUsingWorker = function (feedfile) {
             var worker = new Worker('js/worker.js');
             var defer = angular.injector(["ng"]).get("$q").defer();
             worker.onmessage = function(e) {           
@@ -199,9 +198,22 @@
             };
 
             console.log("sending at  "+window.performance.now());
-            worker.postMessage("http://iyengark.github.io/chickenlover/comments.json");
+            worker.postMessage("http://iyengark.github.io/chickenlover/"+feedfile);
+
+            defer.promise.then(function (workerReply) {
+              console.log("response received at  "+window.performance.now());
+              workerResponse = JSON.parse(workerReply);
+            });
+
             return defer.promise;
           }
+
+          var workerResponse;
+          //fetchDataUsingWorker("comments.json").then(bootstrapApplication);
+          fetchDataUsingWorker("comments.json").then(function() {
+            console.log('number of comments from web worker '+workerResponse.comments.length);
+          });
+
           /*fetchDataUsingWorker().then(function (workerReply) {
             console.log("response received at  "+window.performance.now());
             workerResponse = JSON.parse(workerReply);
