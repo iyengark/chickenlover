@@ -71,7 +71,7 @@
             function (NYTimessData, comments, $scope) {
               var nyt = this;
               nyt.comments = comments;
-              NYTimesData.getComments(nyt.feedfile).then(console.log('NYTimes.getComments() successful.'));
+              NYTimesData.getComments(nyt.feedfile).then(console.log('NYTimesData.getComments() successful.'));
               nyt.byline = 'ALL';
               
               nyt.bylineClicked = function(newByline) {
@@ -171,7 +171,7 @@
           });
 
           var myServices = angular.module("myServices", []);
-          myServices.factory("NYTimessData", ['$http', function($http) {
+          myServices.factory("NYTimesData", ['$http', function($http) {
             return {
               getComments: function(feedfile) {
                 console.log('this is the service call to get comments data from....'+feedfile);
