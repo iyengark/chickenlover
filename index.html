@@ -67,17 +67,20 @@
               }
             };
           })
-          .controller('CommentsController', ['comments', '$scope', function (comments, $scope) {
-            var nyt = this;
-            nyt.comments = comments;
-            nyt.byline = 'ALL';
-            
-            nyt.bylineClicked = function(newByline) {
-              //console.log('Current Byline......'+nyt.byline);
-              //console.log('New Byline......'+newByline);
-              nyt.byline = newByline;
-            };
-          }]);
+          .controller('CommentsController', ['NYTCommentsData', 'comments', '$scope', 
+            function (NYTCommentsData, comments, $scope) {
+              var nyt = this;
+              nyt.comments = comments;
+              NYTCommentsData.getComments(nyt.feedfile);
+              nyt.byline = 'ALL';
+              
+              nyt.bylineClicked = function(newByline) {
+                //console.log('Current Byline......'+nyt.byline);
+                //console.log('New Byline......'+newByline);
+                nyt.byline = newByline;
+              };
+            }]
+          );
 
           myDirectives.directive('nytComment', function() {
             return {
@@ -170,8 +173,8 @@
           var myServices = angular.module("myServices", []);
           myServices.factory("NYTCommentsData", function() {
             return {
-              getComments: function() {
-                console.log('this is the service call to get comments data....');
+              getComments: function(feedfile) {
+                console.log('this is the service call to get comments data from....'+feedfile);
               };
             };
           });
