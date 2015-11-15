@@ -183,7 +183,7 @@
                   myApplication.value("comments", response.data.comments);
                   console.log('number of comments '+response.data.comments.length);
               }, function(errorResponse) {
-                  // Handle error case
+                  console.log('Error encountered in fetchData()');
               });
           }
 
