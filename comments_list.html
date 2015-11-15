@@ -9,7 +9,7 @@
       </a>
     
       <div ng-model="nyt.byline">
-        <p ng-repeat="comment in nyt.comments | UserBylineFilter : '7440796' : nyt.byline" >
+        <p ng-repeat="comment in nyt.comments | UserBylineFilter : nyt.byline : '7440796'" >
           <nyt-comment id="nyt_{{comment.commentID}}" 
                 commentno="{{$index}}" usercomment="comment" 
           on-byline-click="nyt.bylineClicked"></nyt-comment>
