@@ -65,8 +65,8 @@
               }
             };
           })
-          .controller('CommentsController', ['NYTimesData', '$scope', 
-            function (NYTimesData, $scope) {
+          .controller('CommentsController', ['NYTimesData', '$scope', '$location', 
+            function (NYTimesData, $scope, $location) {
               var nyt = this;
               nyt.byline = 'ALL';
               nyt.comments = [];
@@ -78,6 +78,9 @@
                 }, function(errorResponse) {
                     console.log('Error encountered in fetching comments using NYTimesData.getCommentsUsingWebWorker().');
                 });
+                
+              //position on nyt_16586907, if available
+              console.log('url is '+$location.url()+' and path is '+$location.path());
               /*  
               NYTimesData.getComments(nyt.feedfile).then(
                 function(response) {
