@@ -238,30 +238,6 @@
 
           fetchData("comments.json").then(bootstrapApplication);
           */
-          /*
-          function fetchDataUsingWorker(feedfile) {
-            var worker = new Worker('js/worker.js');
-            var defer = angular.injector(["ng"]).get("$q").defer();
-            worker.onmessage = function(e) {           
-              defer.resolve(e.data);
-              worker.terminate();
-            };
-
-            console.log("sending at  "+window.performance.now());
-            worker.postMessage("http://iyengark.github.io/chickenlover/"+feedfile);
-
-            defer.promise.then(function (workerReply) {
-              console.log("response received at  "+window.performance.now());
-              //workerResponse = JSON.parse(workerReply);
-              myApplication.value("comments", JSON.parse(workerReply).comments);
-              console.log('number of comments from web worker '+JSON.parse(workerReply).comments.length);
-            });
-
-            return defer.promise;
-          }
-
-          fetchDataUsingWorker("comments.json").then(bootstrapApplication);
-          */
       }());
     </script>
   </body>
