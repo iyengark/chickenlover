@@ -79,6 +79,10 @@
                     console.log('Error encountered in fetching comments using NYTimesData.getCommentsUsingWebWorker().');
                 });
                 
+              nyt.scrollTo = function(id) {
+                $location.hash(id);
+                $anchorScroll();
+              }
               //position on nyt_16586907, if available
               console.log('absolute url is '+$location.absUrl());
               console.log('url is '+$location.url()+' and path is '+$location.path()+' and hash is '+$location.hash());
@@ -97,10 +101,6 @@
                 //console.log('New Byline......'+newByline);
                 nyt.byline = newByline;
               };
-              nyt.scrollTo = function(id) {
-                $location.hash(id);
-                $anchorScroll();
-              }
             }]
           );
 
