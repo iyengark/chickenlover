@@ -65,8 +65,8 @@
               }
             };
           })
-          .controller('CommentsController', ['NYTimesData', '$scope', '$location', 
-            function (NYTimesData, $scope, $location) {
+          .controller('CommentsController', ['NYTimesData', '$scope', '$location', '$anchorScroll', 
+            function (NYTimesData, $scope, $location, $anchorScroll) {
               var nyt = this;
               nyt.byline = 'ALL';
               nyt.comments = [];
@@ -79,10 +79,14 @@
                     console.log('Error encountered in fetching comments using NYTimesData.getCommentsUsingWebWorker().');
                 });
                 
+              nyt.scrollTo = function(id) {
+                $location.hash(id);
+                $anchorScroll();
+              }
               //position on nyt_16586907, if available
               console.log('absolute url is '+$location.absUrl());
               console.log('url is '+$location.url()+' and path is '+$location.path()+' and hash is '+$location.hash());
-              $location.path('#nyt_16586907').replace();
+              nyt.scrollTo('nyt_16586907');
               /*  
               NYTimesData.getComments(nyt.feedfile).then(
                 function(response) {
