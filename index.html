@@ -160,6 +160,9 @@
             nytcomment.recommendations = nytcomment.usercomment.recommendations;
             nytcomment.commentID = nytcomment.usercomment.commentID;
 
+            nytcomment.abstractClicked = function() {
+              nytcomment.showComment = !nytcomment.showComment;
+            };
             nytcomment.toggle = function(show) {
               nytcomment.showComment = show;
             };
