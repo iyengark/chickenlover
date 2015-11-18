@@ -65,8 +65,8 @@
               }
             };
           })
-          .controller('CommentsController', ['NYTimesData', '$scope', '$location', '$anchorScroll', 
-            function (NYTimesData, $scope, $location, $anchorScroll) {
+          .controller('CommentsController', ['NYTimesData', '$scope', '$location', '$anchorScroll', '$timeout', 
+            function (NYTimesData, $scope, $location, $anchorScroll, $timeout) {
               var nyt = this;
               nyt.byline = 'ALL';
               nyt.comments = [];
