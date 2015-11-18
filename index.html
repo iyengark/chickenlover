@@ -84,7 +84,7 @@
                 console.log('absolute url is '+$location.absUrl());
                 console.log('url is ['+$location.url()+'] and path is ['+$location.path()+'] and hash is ['+$location.hash()+']');
                 $timeout(function() {
-                  $location.path('');
+                  //$location.path('');
                   $location.hash(id);
                   $anchorScroll();
                 });
@@ -131,7 +131,7 @@
                     //console.log('nytComment post-link code here...'+dummy);
                     element.bind("click", function(e) {    
                       if(e.target && e.target.id.slice(0, 8) === 'abstract') {
-                        $location.path('').replace();
+                        //$location.path('').replace();
                         $location.hash(e.target.id).replace();
                         scope.$apply();
                       }
