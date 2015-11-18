@@ -104,7 +104,7 @@
             }]
           );
 
-          myDirectives.directive('nytComment', function() {
+          myDirectives.directive('nytComment', ['$location', function($location) {
             return {
               scope: {
                 commentno: '@',
@@ -136,7 +136,7 @@
                 };
               }
             };
-          })
+          }])
           .controller('NytCommentController', function () {
             var nytcomment = this;
             nytcomment.showComment=false;
