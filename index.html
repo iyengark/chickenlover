@@ -84,6 +84,7 @@
                 console.log('absolute url is '+$location.absUrl());
                 console.log('url is ['+$location.url()+'] and path is ['+$location.path()+'] and hash is ['+$location.hash()+']');
                 $timeout(function() {
+                  $location.path('');
                   $location.hash(id);
                   $anchorScroll();
                 });
