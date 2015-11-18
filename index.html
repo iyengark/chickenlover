@@ -126,17 +126,11 @@
                   },
                   post: function(scope, element, attributes, controller, transcludeFn) {
                     //console.log('nytComment post-link code here...'+dummy);
-                    element.bind("mouseover", function(e) {    
+                    element.bind("click", function(e) {    
                       if(e.target && e.target.id.slice(0, 8) === 'abstract') {
-                        //scope.$apply(controller.toggle(true));
+                        scope.$apply($location.hash(e.target.id));
                       }
-                      e.stopPropagation();
-                    });
-                    element.bind("mouseout", function(e) {
-                      if(e.target && e.target.id.slice(0, 8) === 'abstract') {
-                        //scope.$apply(controller.toggle(false));
-                      }
-                      e.stopPropagation();
+                      //e.stopPropagation();
                     });
                   }
                 };
