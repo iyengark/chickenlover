@@ -77,6 +77,8 @@
                   console.log('NYTimesData.getCommentsUsingWebWorker(): number of comments fetched '+nyt.comments.length);
                 }, function(errorResponse) {
                     console.log('Error encountered in fetching comments using NYTimesData.getCommentsUsingWebWorker().');
+                }).then(function() {
+                    nyt.scrollTo('abstract_15');
                 });
 
               nyt.scrollTo = function(id) {
@@ -89,7 +91,6 @@
                   $anchorScroll();
                 });
               }
-              nyt.scrollTo('abstract_15');
               /*  
               NYTimesData.getComments(nyt.feedfile).then(
                 function(response) {
