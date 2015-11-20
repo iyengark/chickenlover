@@ -79,8 +79,8 @@
                     console.log('Error encountered in fetching comments using NYTimesData.getCommentsUsingWebWorker().');
                 }).then(function() {
                     console.log('absolute url is '+$location.absUrl());
-                    console.log('url is ['+$location.url()+'] and path is ['+$location.path()+'] and hash is ['+$location.hash()+']');
-                    nyt.scrollTo($location.hash());
+                    console.log('url is ['+$location.url()+'] and path is ['+$location.path()+'] and hash is ['+decodeURIComponent($location.hash())+']');
+                    nyt.scrollTo(decodeURIComponent($location.hash()));
                 });
 
               nyt.scrollTo = function(id) {
