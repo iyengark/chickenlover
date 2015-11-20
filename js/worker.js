@@ -7,7 +7,7 @@ this.get = function (Url, Callback) {
         HttpRequest = new XMLHttpRequest();
         HttpRequest.onreadystatechange = function () {
         if (HttpRequest.readyState == 4 && HttpRequest.status == 200) {
-                console.log('http response length in bytes: '+HttpRequest.responseText.length);
+                //console.log('http response length in bytes: '+HttpRequest.responseText.length);
                 Callback(HttpRequest.responseText);
             }              
         }        
