@@ -80,7 +80,7 @@
                 }).then(function() {
                     console.log('absolute url is '+$location.absUrl());
                     console.log('url is ['+$location.url()+'] and path is ['+$location.path()+'] and hash is ['+$location.hash()+']');
-                    nyt.scrollTo('nyt_16586907');
+                    nyt.scrollTo($location.hash());
                 });
 
               nyt.scrollTo = function(id) {
