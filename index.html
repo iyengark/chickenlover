@@ -132,6 +132,7 @@
                     }
                     element.bind("click", function(e) {    
                       if(e.target && e.target.id === scope.nytcomment.commentID.toString()) {
+                        $location.path('');
                         $location.hash(e.target.id).replace();
                         scope.$apply();
                       }
