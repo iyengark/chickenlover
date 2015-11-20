@@ -129,9 +129,11 @@
                   },
                   post: function(scope, element, attributes, controller, transcludeFn) {
                     //console.log('nytComment post-link code here...'+dummy);
+                    if($location.hash()) {
+                      scope.showComment = true;
+                    }
                     element.bind("click", function(e) {    
                       if(e.target && e.target.id.slice(0, 8) === 'abstract') {
-                        //$location.path('').replace();
                         $location.hash(e.target.id).replace();
                         scope.$apply();
                       }
