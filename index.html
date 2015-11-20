@@ -85,6 +85,7 @@
 
               nyt.scrollTo = function(id) {
                 //position on a specified id
+                $location.path('');
                 $location.hash(id);
                 $anchorScroll();
                 //$timeout(function() {
