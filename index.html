@@ -130,7 +130,7 @@
                       controller.abstractClicked();
                     }
                     element.bind("click", function(e) {    
-                      if(e.target && e.target.id === scope.nytcomment.commentID) {
+                      if(e.target && e.target.id === scope.nytcomment.commentID.toString()) {
                         $location.hash(e.target.id).replace();
                         scope.$apply();
                       }
