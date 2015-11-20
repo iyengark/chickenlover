@@ -4,7 +4,7 @@
       <img id="image_{{nytcomment.commentID}}" ng-src={{nytcomment.bylineImageUrl}}>
     </a>
   </span>
-  <a href id="abstract_{{nytcomment.commentID}}" ng-click="nytcomment.abstractClicked();">{{nytcomment.abstract}}</a>
+  <a href id="{{nytcomment.commentID}}" ng-click="nytcomment.abstractClicked();">{{nytcomment.abstract}}</a>
   <!--a href id="abstract_{{nytcomment.commentID}}" ng-click="nytcomment.showComment = !nytcomment.showComment;">{{nytcomment.abstract}}</a--> 
   [ <a id="title_{{nytcomment.commentID}}" target="_blank" ng-href="{{nytcomment.url}}">{{nytcomment.title}}</a> &raquo;&nbsp;
     <a href ng-click="nytcomment.onBylineClick()(nytcomment.byline)">
