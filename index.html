@@ -129,7 +129,7 @@
                   },
                   post: function(scope, element, attributes, controller, transcludeFn) {
                     //console.log('nytComment post-link code here...'+dummy);
-                    if($location.hash() === 'abstract_16568769') {
+                    if($location.hash() && $location.hash().indexOf(scope.nytcomment.commentID) > -1) {
                       controller.abstractClicked();
                     }
                     element.bind("click", function(e) {    
