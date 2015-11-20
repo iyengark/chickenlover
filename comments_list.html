@@ -9,9 +9,8 @@
       </a>
     
       <div ng-model="nyt.byline">
-        <p ng-repeat="comment in nyt.comments | UserBylineFilter : nyt.byline" >
-          <nyt-comment id="nyt_{{comment.commentID}}" 
-                commentno="{{$index}}" usercomment="comment" 
+        <p id="nyt_{{comment.commentID}}" ng-repeat="comment in nyt.comments | UserBylineFilter : nyt.byline" >
+          <nyt-comment commentno="{{$index}}" usercomment="comment" 
           on-byline-click="nyt.bylineClicked"></nyt-comment>
         </p>
       </div>
