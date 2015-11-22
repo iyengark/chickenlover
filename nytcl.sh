@@ -1,8 +1,6 @@
 cd /Users/krishnan/sandbox/chickenlover
 rm comments.json.bkup && mv comments.json comments.json.bkup
-python nytapi.py
+echo MMM-DD-YYYY
 git pull
-git add comments.json
-git commit -a -m "comments.json as of MMM-DD-YYYY"
-git push origin gh-pages
+python nytapi.py && git add comments.json && git commit -a -m "comments.json as of {$1}" && git push origin gh-pages
 
