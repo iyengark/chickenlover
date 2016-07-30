@@ -177,7 +177,7 @@
                 var selectedComments = [];
                 for(i=0;i<comments.length;i++) {
                     addComment = false;
-                    if (comments[i].userID == userid) {
+                    if (comments[i].userID == userid && comments[i].newswire.length > 0) {
                       if ('ALL' === byline) {
                          addComment = true;                    
                       } else {
