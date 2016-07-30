@@ -1,5 +1,6 @@
 cd /Users/krishnan/sandbox/chickenlover
-rm comments.json.bkup && mv comments.json comments.json.bkup
+[ -f comments.json.bkup ] && rm comments.json.bkup
+[ -f comments.json ] && mv comments.json comments.json.bkup
 echo MMM-DD-YYYY
 git status
 git pull
